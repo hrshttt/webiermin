@@ -2,9 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const Navbar = () => {
-  const navRef = useRef(null);
-  const spotlightRef = useRef(null);
-  const mobileMenuRef = useRef(null);
+  // 1. Fix Refs: typed as specific HTML elements instead of null/never
+  const navRef = useRef<HTMLElement>(null);
+  const spotlightRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
@@ -75,7 +77,8 @@ const Navbar = () => {
 
 
   // 2. Spotlight Tracker Logic (Desktop)
-  const handleMouseMove = (e) => {
+  // Fix: Typed the event as React.MouseEvent<HTMLElement>
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!spotlightRef.current || !navRef.current || window.innerWidth < 768) return;
     const navRect = navRef.current.getBoundingClientRect();
     
@@ -201,8 +204,15 @@ const Navbar = () => {
 };
 
 // Micro-Component: Magnetic Effect
-const MagneticItem = ({ children }) => {
-    const magnetic = useRef(null);
+
+// 3. Define Interface for children
+interface MagneticItemProps {
+    children: React.ReactElement; // Must be a valid React Element to accept a ref
+}
+
+const MagneticItem = ({ children }: MagneticItemProps) => {
+    // 4. Fix Ref Type
+    const magnetic = useRef<HTMLElement>(null);
 
     useEffect(() => {
         const el = magnetic.current;
@@ -211,7 +221,8 @@ const MagneticItem = ({ children }) => {
         const xTo = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3.out" });
         const yTo = gsap.quickTo(el, "y", { duration: 0.4, ease: "power3.out" });
 
-        const handleMouseMove = (e) => {
+        // 5. Fix Native DOM Event Type
+        const handleMouseMove = (e: MouseEvent) => {
             const { clientX, clientY } = e;
             const { height, width, left, top } = el.getBoundingClientRect();
             const x = clientX - (left + width / 2);
@@ -226,6 +237,7 @@ const MagneticItem = ({ children }) => {
             yTo(0);
         };
 
+        // These are native DOM events, not React events
         el.addEventListener("mousemove", handleMouseMove);
         el.addEventListener("mouseleave", handleMouseLeave);
 
@@ -235,6 +247,7 @@ const MagneticItem = ({ children }) => {
         };
     }, []);
 
+    // Clone element to pass the ref down
     return React.cloneElement(children, { ref: magnetic });
 };
 

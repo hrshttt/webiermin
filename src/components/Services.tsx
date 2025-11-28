@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   ArrowRight,
   Globe,
@@ -24,7 +24,7 @@ interface StepType {
   desc: string;
   duration: string;
   team: string[];
-  icon: JSX.Element;
+  icon: React.ReactNode; // Fixed: Changed from JSX.Element to React.ReactNode
   color: string;
   borderColor: string;
   fileType: string;

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Instagram,
   Twitter,
@@ -17,7 +17,7 @@ interface FooterColumnProps {
 }
 
 interface MagneticSocialIconProps {
-  icon: JSX.Element;
+  icon: React.ReactNode; // Fixed: Changed JSX.Element to React.ReactNode
 }
 
 interface Position {
@@ -30,14 +30,7 @@ interface Position {
 ----------------------------------------------- */
 
 const Footer = () => {
-  const [copied, setCopied] = useState(false);
-  const email = "hello@webier.com";
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  // Fixed: Removed unused 'copied', 'email', and 'handleCopy' variables
 
   return (
     <footer className="relative bg-[#3533cd] text-white pb-24 overflow-hidden">
@@ -155,7 +148,8 @@ const MagneticSocialIcon = ({ icon }: MagneticSocialIconProps) => {
     <a
       href="#"
       ref={ref}
-      onMouseMove={(e) => {
+      // Fixed: Added explicit React.MouseEvent type
+      onMouseMove={(e: React.MouseEvent<HTMLAnchorElement>) => {
         if (!ref.current) return;
 
         const rect = ref.current.getBoundingClientRect();
