@@ -11,7 +11,7 @@ interface Stat {
   sub: string;
   desc: string;
   colSpan: string;
-  icon: React.ElementType | null; // Fix for icon type
+  icon: React.ElementType | null;
 }
 
 const stats: Stat[] = [
@@ -154,7 +154,8 @@ const BentoCard = ({ stat, isVisible, delay }: BentoCardProps) => {
   // 4. Fix Ref type for Div
   const cardRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+  
+  // FIXED: Removed unused 'isHovering' state
 
   // Count Up Logic
   useEffect(() => {
@@ -191,8 +192,7 @@ const BentoCard = ({ stat, isVisible, delay }: BentoCardProps) => {
     <div 
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      // FIXED: Removed unused onMouseEnter/onMouseLeave handlers
       className={`
         group relative bg-white rounded-3xl p-8 md:p-10 flex flex-col justify-between overflow-hidden
         transition-all duration-700 ease-out hover:shadow-2xl hover:-translate-y-1

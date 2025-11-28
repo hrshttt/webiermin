@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const Navbar = () => {
-  // 1. Fix Refs: typed as specific HTML elements instead of null/never
+  // 1. Refs typed explicitly
   const navRef = useRef<HTMLElement>(null);
   const spotlightRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -77,7 +77,6 @@ const Navbar = () => {
 
 
   // 2. Spotlight Tracker Logic (Desktop)
-  // Fix: Typed the event as React.MouseEvent<HTMLElement>
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!spotlightRef.current || !navRef.current || window.innerWidth < 768) return;
     const navRect = navRef.current.getBoundingClientRect();
@@ -207,7 +206,8 @@ const Navbar = () => {
 
 // 3. Define Interface for children
 interface MagneticItemProps {
-    children: React.ReactElement; // Must be a valid React Element to accept a ref
+    // FIX: Using 'any' for children allows passing the ref cleanly
+    children: React.ReactElement<any>; 
 }
 
 const MagneticItem = ({ children }: MagneticItemProps) => {
