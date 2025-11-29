@@ -175,7 +175,7 @@ const Philosophy = () => {
             We believe that digital products should be more than just
             functional. They should be intuitive, immersive, and memorable.
             We blend strategy with art to create websites that don't just load —
-            they **live**.
+            they live.
           </p>
         </div>
       </div>
