@@ -12,49 +12,50 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     id: "01",
-    client: "Lumina",
-    title: "Hyper-Fintech",
+    client: "SAVERA",
+    title: "SAVERA",
     year: "2024",
-    desc: "Reinventing the financial stack with brutalist aesthetics and biometric security.",
-    tags: ["Product Strategy", "React Native"],
-    img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop",
-    color: "#E0F2FE", // Light Blue
-    link: "https://www.reddit.com/"
+    desc: "A heritage-rich ultra-luxury real estate brand bridging Dubai and India. Designed with deep noir aesthetics, gold accents, and a timeless premium identity.",
+    tags: ["Luxury Real Estate", "Brand Website", "GSAP", "Lenis"],
+    img: "/savera.jpg",
+    color: "#D4AF37", // Luxury Gold
+    link: "https://savera-five.vercel.app/"
   },
   {
     id: "02",
-    client: "Aether",
-    title: "Spatial Audio",
-    year: "2023",
-    desc: "A WebGL-powered sanctuary translating raw concrete textures into digital experiences.",
-    tags: ["WebGL", "3D Modelling"],
-    img: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2068&auto=format&fit=crop",
-    color: "#F3E8FF", // Light Purple
-    link: "#aether-case-study"
+    client: "VibeMaker",
+    title: "VibeMaker",
+    year: "2024",
+    desc: "A highly animated, GSAP-powered digital marketing website with smooth Lenis scrolling, vibrant gradients, and a futuristic UI crafted for bold brand energy.",
+    tags: ["Digital Agency", "Animations", "GSAP", "Lenis", "UI Design"],
+    img: "/vibemaker.jpg",
+    color: "#22C55E", // Neon Green
+    link: "https://vibemaker-hazel.vercel.app/"
   },
   {
     id: "03",
-    client: "Off-White™",
-    title: "Industrial",
+    client: "Martini",
+    title: "Martini",
     year: "2024",
-    desc: "A headless Shopify build that treats products like art artifacts.",
-    tags: ["E-Commerce", "AI Integration"],
-    img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop",
-    color: "#FFE4E6", // Light Pink
-    link: "#offwhite-case-study"
+    desc: "A high-value luxury restaurant experience for Pune, crafted with cinematic motion, warm premium tones, and immersive micro-interactions.",
+    tags: ["Restaurant", "Luxury UI", "GSAP", "LocoScroll"],
+    img: "/martini.jpg",
+    color: "#C24E00", // Premium Copper/Amber
+    link: "https://martini-self.vercel.app/"
   },
   {
     id: "04",
-    client: "Neural",
-    title: "Sentient Data",
-    year: "2023",
-    desc: "An analytics platform designed with a dark-mode-first approach.",
-    tags: ["Data Viz", "SaaS System"],
-    img: "https://images.unsplash.com/photo-1485628390555-ade7403950f8?q=80&w=1974&auto=format&fit=crop",
-    color: "#DCFCE7", // Light Green
-    link: "#neural-case-study"
+    client: "Luxe Realty",
+    title: "Luxe Realty",
+    year: "2024",
+    desc: "A modern real estate website built with smooth interactions, clean aesthetics, pastel accents, and a professional polished layout.",
+    tags: ["Real Estate", "Modern UI", "Animations"],
+    img: "/luxe.jpg",
+    color: "#00D6A3", // Aqua Green
+    link: "https://luxe-realstate.vercel.app/"
   },
 ];
+
 
 /* --------------------------------------------------
    COMPONENT
@@ -205,9 +206,7 @@ const SelectedWorks = () => {
                     <div className="w-full h-[1px] bg-black/5 mb-4"></div>
 
                     <div className="flex justify-between items-center">
-                       <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-black/40">
-                         {project.client}
-                       </span>
+                       
                        {/* Changed button to div to maintain valid HTML within anchor tag */}
                        <div className="flex items-center gap-2 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-[#3533cd] transition-colors group/btn">
                          Case Study <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
